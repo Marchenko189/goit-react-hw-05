@@ -1,0 +1,102 @@
+.container {
+    /* display: flex; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100%;
+    background-color: #1c1c1c;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.container_cont {
+    display: flex;
+}
+
+.button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 8px;
+}
+
+.button:hover {
+    background-color: rgb(253, 131, 86);
+}
+
+.loading,
+.error {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+.poster {
+    display: block;
+    width: 320px;
+    height: 440px;
+    /* max-width: 400px; */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    margin-right: 32px;
+}
+
+.title {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.rating {
+    font-size: 18px;
+    color: yellow;
+}
+
+.overview,
+.genres,
+.releaseDate {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.genres p {
+    display: inline-block;
+    background: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.list {
+    display: flex;
+    list-style: none;
+}
+
+.item {
+    margin-right: 12px;
+    background: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.link {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #ffcc00;
+}
