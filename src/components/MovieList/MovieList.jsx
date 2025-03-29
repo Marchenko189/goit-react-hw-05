@@ -11,7 +11,7 @@ export default function MovieList({ trends }) {
                     <li className={css.listItem} key={trend.id}>
                         <NavLink
                             to={`/movies/${trend.id}`}
-                            state={{ from: location.state?.from || { pathname: location.pathname, search: location.search } }}
+                            state={location}
                             className={css.link}>
                          {trend.title}
                         </NavLink>

@@ -1,5 +1,5 @@
-import { useState, useEffect, Suspense } from "react";
-import { Outlet, useParams, NavLink, useNavigate, useLocation} from "react-router";
+import { useState, useEffect, useRef, Suspense } from "react";
+import { Outlet, useParams, NavLink, useLocation} from "react-router";
 import { fetchDetailMovies } from "../../moviesService";
 import css from "./MovieDetailsPage.module.css";
 
@@ -8,12 +8,10 @@ export default function MovieDetailsPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [details, setDetails] = useState(null);
-    const navigate = useNavigate();
-    const location = useLocation();
 
-    const goBack = () => {
-       navigate(location.state?.from?.pathname + location.state?.from?.search || "/movies");
-    };
+    const location = useLocation();
+    const backLinkRef = useRef(location.state || '/movies');
+
 
     useEffect(() => {
         async function getDetails() {
@@ -41,9 +39,9 @@ export default function MovieDetailsPage() {
             {error && <b className={css.error}>Error...</b>}
                  {details &&
                 <div className={css.container}>
-            <button className={css.button} type="button" onClick={goBack} >
+            <NavLink to={backLinkRef.current} className={css.button} type="button">
                 Go back
-                    </button>
+                    </NavLink>
                     <div className={css.container_cont}>
                       <img className={css.poster} src={`https://image.tmdb.org/t/p/w500${details.poster_path}`} alt={details.title} />
             <div>
@@ -61,15 +59,13 @@ export default function MovieDetailsPage() {
                     
                      <ul className={css.list}>
         <li className={css.item}>
-          <NavLink to="cast" state={{ from: location.state?.from }} className={css.link}>Cast</NavLink>
+          <NavLink to="cast"  className={css.link}>Cast</NavLink>
         </li>
         <li className={css.item}>
-          <NavLink to="reviews" state={{ from: location.state?.from }} className={css.link}>Reviews</NavLink>
+          <NavLink to="reviews"  className={css.link}>Reviews</NavLink>
         </li>
       </ul>    
-            </div>
-          
-                        
+            </div>       
                     </div>
                     
            
